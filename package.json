@@ -9,5 +9,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "uniqid": "^5.4.0"
+  },
+  "devDependencies": {
+    "jsdoc": "^4.0.3"
+  }
 }
