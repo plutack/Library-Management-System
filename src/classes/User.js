@@ -1,14 +1,12 @@
 import uniqid from "uniqid";
+import { User } from "../../types/customTypes.js";
 class User {
-  bookCount = 0;
-  id = uniqid();
   /**
-   * @param {string} id
-   * @param {string} name
-   * @param {string[]} borrowedBooks
+   *@param {User} user
    */
   constructor(name) {
     // property
+    this.id = uniqid();
     // this.id = id
     this.name = name;
     this.borrowedBooks = [];
