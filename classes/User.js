@@ -1,7 +1,5 @@
 import uniqid from "uniqid";
 class User {
-  bookCount = 0;
-  id = uniqid();
   /**
    * @param {string} id
    * @param {string} name
@@ -9,45 +7,42 @@ class User {
    */
   constructor(name) {
     // property
-    // this.id = id
-    this.name = name;
+    this.id = uniqid();
     this.borrowedBooks = [];
   }
   // methods
-  /**
-     *@param {string} isbn 
-     *@param {string[]} bookCollection
-     *@returns {Book || undefined} 
-    
-    */
-  #searchByIsbn(isbn, bookCollection) {
-    for (const book of bookCollection) {
-      if (book.isbn === isbn) {
-        return book;
-      }
-    }
-    return undefined;
-  }
   pickBook(isbn, library) {
-    //
-    const book = this.#searchByIsbn(isbn, library.books);
-    if (book) {
-      library.this.borrowedBooks.push();
-      library.books = library.books.filter((book) => book.isbn !== isbn);
-      this.bookCount++;
-      console.log(`${book} was borrowed successfully`);
-      return this;
+    try {
+      if (this.borrowedBooks < 3) {
+        const bookIndex = library.books.findIndex((book) => book.isbn === isbn);
+        if (bookIndex !== -1) {
+          const [book] = library.books.splice(bookIndex, 1);
+          this.borrowedBooks.push(book);
+          console.log(`${book.title} was borrowed successfully`);
+          return book;
+        }
+        throw new Error(`book with ${isbn} does not exist in library`);
+      }
+      throw new Error("borrowed book count exceeded");
+    } catch (err) {
+      console.error("Error: ", err.message);
     }
-    console.log("book does not exist");
   }
 
   returnBook(isbn, library) {
-    const book = this.#searchByIsbn(isbn, this.borrowedBooks);
-    if (book) {
-      this.borrowedBooks = this.borrowedBooks.filter(
-        (book) => book.isbn !== isbn,
+    try {
+      const bookIndex = this.borrowedBooks.findIndex(
+        (book) => book.isbn === isbn,
       );
-      library.books.push(book);
+      if (bookIndex !== -1) {
+        const [book] = this.borrowedBooks.splice(bookIndex, 1);
+        library.books.push(book);
+        console.log(`${book.title} returned successfully`);
+      } else {
+        throw new Error(`user is not possesion book with isbn: ${isbn}`);
+      }
+    } catch (err) {
+      console.error("Error:", err.message);
     }
   }
 }

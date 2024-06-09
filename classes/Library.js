@@ -5,40 +5,28 @@ class Library {
   books = [];
 
   //methods
-  #searchByIsbn(isbn, bookCollection) {
-    for (const book of bookCollection) {
-      if (book.isbn === isbn) {
-        return book;
-      }
-    }
-    return undefined;
-  }
   registerMember(user) {
-    this.members.push(user);
-    console.log("success");
-    return;
+    try {
+      if (this.members.some((member) => member.name === user.name)) {
+        throw new Error(`${user.name} exists`);
+      }
+      this.members.push(user);
+      console.log(`${user.name} successfully registered`);
+    } catch (err) {
+      console.log("Error", err.message);
+    }
   }
 
-  addNewBook(book) {
-    this.books.push(book);
-    console.log("success");
-    return;
-  }
-
-  borrowBook(user, isbn) {
-    const book = this.#searchByIsbn(isbn, this.books);
-    if (book && user.bookcount < 3) {
-      return true;
+  addNewBook(newBook) {
+    try {
+      if (this.books.some((book) => book.title === newBook.title)) {
+        throw new Error(`${book.title} exists`);
+      }
+      this.books.push(newBook);
+      console.log(`${newBook.title} successfully added`);
+    } catch (err) {
+      console.log("Error", err.message);
     }
-    if (!book) {
-      console.log("book does not exceeded");
-      return;
-    }
-    if (user.bookCount >= 3) {
-      console.log("number of book that can be  borrowed exceeded");
-      return;
-    }
-    console.log("book cannot be borrowed");
   }
 }
 export default Library;
