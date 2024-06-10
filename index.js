@@ -7,7 +7,7 @@ const bookInfo = {
   author: "Will wight",
   isbn: "2ykkfdh3284ihkcdskh834",
 };
-const book = new Book(bookInfo.title, bookInfo.author, bookInfo.isbn);
+const book = new Book(bookInfo);
 const library = new Library();
 library.addNewBook(book);
 const user = new User("bayo");
