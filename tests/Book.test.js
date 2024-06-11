@@ -1,6 +1,6 @@
 import uniqid from "uniqid";
 import Book from "../classes/Book.js";
-import { bookInfo } from "./__mocks__/data.js";
+import { bookInfo, mockBookId } from "./__mocks__/data.js";
 jest.mock("uniqid", () => jest.fn());
 
 describe("Book class", () => {
@@ -8,11 +8,11 @@ describe("Book class", () => {
     uniqid.mockClear();
   });
   it("should create a book with a unique id, title, author and isbn", () => {
-    uniqid.mockImplementation(() => "id12345");
+    uniqid.mockImplementation(() => mockBookId);
     const newBook = new Book(bookInfo);
     expect(uniqid).toHaveBeenCalledTimes(1);
     expect(newBook).toBeInstanceOf(Book);
-    expect(newBook.id).toBe("id12345");
+    expect(newBook.id).toBe(mockBookId);
     expect(newBook.title).toBe(bookInfo.title);
     expect(newBook.author).toBe(bookInfo.author);
     expect(newBook.isbn).toBe(bookInfo.isbn);
