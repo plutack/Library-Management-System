@@ -10,6 +10,7 @@ class User {
     this.id = uniqid();
     this.borrowedBooks = [];
   }
+  // FIX: sanitize check for methods to check the arguement passed (string||array||invalid)
   // methods
   pickBook(isbn, library) {
     try {

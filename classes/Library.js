@@ -4,6 +4,7 @@ class Library {
   members = [];
   books = [];
 
+  // FIX: sanitize check for methods to check the arguement passed (string||array||invalid)
   //methods
   registerMember(user) {
     try {
