@@ -17,7 +17,7 @@ Describe("User class", ()=>{
    expect(newUser.id).toBe.(mockUserId)
    expect(newUser.borrowedBooks.length).toBe(0)
  }) 
- it("should pick a book", ()=>{
+ it("should pick a single book", ()=>{
    const newBook = new Book(bookInfo)
    const newLibrary = new Library()
    newLibrary.addNewBook(newBook)
@@ -28,4 +28,25 @@ Describe("User class", ()=>{
    expect(newUser.borrowedbooks[0].borrowed).toBe.(true)
    expect(newLibrary.book).toBe(0)
  })
+ 
+ it("should not pick a book(borrowedBook count exceeded)", ()=>{
+   
+ })
+ 
+ it("should not pick a book(book does not exist)", ()=>{
+   
+ })
+ 
+ it("should return a book", ()=>{
+   
+ })
+ 
+ it("should return 3 books", ()=>{
+   
+ })
+ 
+ it("should not return a book(book was not borrowed)", ()=>{
+   
+ })
+ 
 })
