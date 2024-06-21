@@ -1,5 +1,5 @@
-import Library from "../classes/Library.js";
-import Book from "../classes/Book.js";
+import Library from "../src/classes/Library.js";
+import Book from "../src/classes/Book.js";
 import { bookInfo } from "./__mocks__/data.js";
 
 describe("Library class", () => {

@@ -1,5 +1,5 @@
 import uniqid from "uniqid";
-import Book from "../classes/Book.js";
+import Book from "../src/classes/Book.js";
 import { bookInfo, mockBookId } from "./__mocks__/data.js";
 jest.mock("uniqid", () => jest.fn());
 

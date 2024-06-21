@@ -1,7 +1,7 @@
 import uniqid from "uniqid";
-import Book from "../classes/Book.js";
-import Library from "../classes/Library.js";
-import User from "../classes/User.js";
+import Book from "../src/classes/Book.js";
+import Library from "../src/classes/Library.js";
+import User from "../src/classes/User.js";
 import {
   bookInfo,
   bookInfo2,
