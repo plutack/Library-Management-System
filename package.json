@@ -1,10 +1,13 @@
 {
   "name": "librarymanagementsystem",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./src/index.js",
   "type": "module",
   "scripts": {
-    "test": "npx jest --verbose"
+    "test": "npx jest --verbose",
+    "dev": "node --watch ./src/index.js",
+    "start": "node ./src/index.js"
+    
   },
   "keywords": [],
   "author": "",
