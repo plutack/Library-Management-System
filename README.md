@@ -1,6 +1,6 @@
 # Library Management System
 
-**Description**: A project to showcase a simple library system with 3 flass components, Library, User, Book
+**Description**: A project to showcase a simple library system with 3 class components, Library, User, Book
 
 1. Clone this repo.
 
